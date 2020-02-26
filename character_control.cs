@@ -1,0 +1,1 @@
+using System.Collections;using System.Collections.Generic;           using UnityEngine;public class character_control : MonoBehaviour   {            void Start()           {           }                   void Update()           {   this.transform.position+=Vector3.up*0.05f;        }        }

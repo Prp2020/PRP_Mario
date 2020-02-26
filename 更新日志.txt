@@ -1,0 +1,4 @@
+2020/1/4
+	修复了重复加载scene时data里随机出来的金币数量不变的问题
+		原因：prefab里的内容加载scene时不会重新load
+		解决方法：把更新金币的内容放入finish的start中
