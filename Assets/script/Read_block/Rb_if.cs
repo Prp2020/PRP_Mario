@@ -33,6 +33,7 @@ public class Rb_if : Block
             //when the loop exits, CURR is an else block or an end block
             while (CURR.gameObject.name.Substring(0,4)!="Else" && CURR.gameObject.name.Substring(0, 4) != "End_")
             {
+                DetectIfWithoutEnd(CURR);
                 CURR = CURR.Read_block();
             }
             //Loop while the current block is not end
@@ -40,6 +41,7 @@ public class Rb_if : Block
             //when the loop ends, CURR is an end block
             while (CURR.gameObject.name.Substring(0,4) != "End_")
             {
+                DetectIfWithoutEnd(CURR);
                 CURR = Return_Next_of(CURR);
             }
         }
@@ -49,12 +51,14 @@ public class Rb_if : Block
             //Skip everything
             while (CURR.gameObject.name.Substring(0,4) != "Else" && CURR.gameObject.name.Substring(0, 4) != "End_")
             {
+                DetectIfWithoutEnd(CURR);
                 CURR = Return_Next_of(CURR);
             }
             //Loop until CURR is an end block
             //do everything
             while (CURR.gameObject.name.Substring(0, 4) != "End_")
             {
+                DetectIfWithoutEnd(CURR);
                 CURR = CURR.Read_block();
             }
         }
@@ -100,5 +104,15 @@ public class Rb_if : Block
                 break;
         }
         return this;
+    }
+
+    //OVERVIEW: if the target of 'down' is null, it means that the program executes to the last line and still find no 'END'.
+    //          In such case, we have a exception.
+    void DetectIfWithoutEnd(Block CURR)
+    {
+        if(CURR.gameObject.transform.GetChild(0).gameObject.GetComponent<Down_Suck>().Target == null)
+        {
+            throw (new IfWithoutEndException());
+        }
     }
 }
