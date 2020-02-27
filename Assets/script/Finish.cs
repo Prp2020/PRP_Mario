@@ -7,10 +7,12 @@ using System.IO;
 public class Finish : Mario
 {
     Vector3 This_pos;
+    bool LoadScene;
     // Start is called before the first frame update
     public override void Start()
     {
         Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+        LoadScene = true;
         for (int i = 0; i < Round; i++)
         {
             WriteData.Score[i] = 0;
@@ -34,13 +36,17 @@ public class Finish : Mario
         {
             if(IsInside())
             {
+                LoadScene = true;
                 for (TheData.Round_ran = 0; TheData.Round_ran < Round; TheData.Round_ran++)
                 {
                     GenerateData();
                 }
-                Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
-                WriteData.Reset();
-                SceneManager.LoadScene(0);
+                if (LoadScene)
+                {
+                    Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+                    WriteData.Reset();
+                    SceneManager.LoadScene(0);
+                }
             }
         }
     }
@@ -59,10 +65,19 @@ public class Finish : Mario
         Data WriteData = (Data) GameObject.Find("DATA").GetComponent("Data");
         Block CURR = GameObject.Find("Start_Block").transform.GetComponent<Rb_start>();
         bool Jixu = true;
-        while (Jixu)
+        while (Jixu&&LoadScene)
         {
             Block Prev = CURR;
-            CURR = CURR.Read_block();
+            try
+            {
+                CURR = CURR.Read_block();
+            }
+            catch(UnassignedReferenceException)
+            {
+                Debug.Log("BUG!");
+                Jixu = false;
+                LoadScene = false;
+            }
             //if the current block is the same as the previous block, we exit the loop
             if (Prev.gameObject.transform.name == CURR.gameObject.transform.name) Jixu = false;
         }
