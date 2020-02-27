@@ -24,7 +24,7 @@ public class Block : Mario
 
     //REQUIRE: the Down block is the first child of the current block
     //MODIFIE: none
-    //EFFECT: return the target of the down block
+    //EFFECT: return the target of the down block, which should be the next block linked to this block. If there is no next block, return the current block.
     protected Block Return_Next()
     {
         GameObject NEXT = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Down_Suck>().Target;

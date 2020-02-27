@@ -74,7 +74,13 @@ public class Finish : Mario
             }
             catch(UnassignedReferenceException)
             {
-                Debug.Log("BUG!");
+                Debug.Log("There is an command with no target!");
+                Jixu = false;
+                LoadScene = false;
+            }
+            catch (IfWithoutEndException)
+            {
+                Debug.Log("There is a IF without an End!");
                 Jixu = false;
                 LoadScene = false;
             }
