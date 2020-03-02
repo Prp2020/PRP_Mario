@@ -23,7 +23,7 @@ public class TrashBin : MonoBehaviour
         if (objTag == "Block" || objTag == "direction" || objTag == "num" || objTag == "signs")
         {
             this.GetComponent<MeshRenderer>().material.color = Color.red;
-            Debug.Log("enter");
+            //Debug.Log("enter");
         }
     }
 
@@ -33,7 +33,7 @@ public class TrashBin : MonoBehaviour
         if (objTag == "Block" || objTag == "direction" || objTag == "num" || objTag == "signs")
         {
             this.GetComponent<MeshRenderer>().material.color = Color.black;
-            Debug.Log("exit");
+            //Debug.Log("exit");
         }
     }
 
