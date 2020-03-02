@@ -62,7 +62,6 @@ public class Finish : Mario
 
     private void GenerateData()
     {
-        Data WriteData = (Data) GameObject.Find("DATA").GetComponent("Data");
         Block CURR = GameObject.Find("Start_Block").transform.GetComponent<Rb_start>();
         bool Jixu = true;
         while (Jixu&&LoadScene)
@@ -74,13 +73,19 @@ public class Finish : Mario
             }
             catch(UnassignedReferenceException)
             {
-                Debug.Log("There is an command with no target!");
+                Debug.Log("There is a command with no target! Exception type: 1");
+                Jixu = false;
+                LoadScene = false;
+            }
+            catch (System.NullReferenceException)
+            {
+                Debug.Log("There is a command with no target! Exception type: 2");
                 Jixu = false;
                 LoadScene = false;
             }
             catch (IfWithoutEndException)
             {
-                Debug.Log("There is a IF without an End!");
+                Debug.Log("There is a IF without an End! Exception type: 3");
                 Jixu = false;
                 LoadScene = false;
             }
