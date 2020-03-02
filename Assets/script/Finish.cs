@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-public class Finish : Mario
+public class Finish : Block
 {
     Vector3 This_pos;
     bool LoadScene;
@@ -62,8 +62,10 @@ public class Finish : Mario
 
     private void GenerateData()
     {
+        Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
         Block CURR = GameObject.Find("Start_Block").transform.GetComponent<Rb_start>();
         bool Jixu = true;
+        WriteData.Jumped = false;
         while (Jixu&&LoadScene)
         {
             Block Prev = CURR;
@@ -89,8 +91,24 @@ public class Finish : Mario
                 Jixu = false;
                 LoadScene = false;
             }
+            catch (MultiJumpException)
+            {
+                Debug.Log("Too many JUMP executed. Exception type: 5");
+                Jixu = false;
+                LoadScene = false;
+            }
             //if the current block is the same as the previous block, we exit the loop
-            if (Prev.gameObject.transform.name == CURR.gameObject.transform.name) Jixu = false;
+            //If jumped is false, it means the player's program didn't execute any jumps
+            if (Prev.gameObject.transform.name == CURR.gameObject.transform.name)
+            {
+                Jixu = false;
+                if (!WriteData.Jumped)
+                {
+                    LoadScene = false;
+                    Debug.Log("No JUMP executed! Exception type: 4");
+                }
+                WriteData.Jumped = false;
+            }
         }
     }
 }
