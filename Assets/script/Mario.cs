@@ -20,6 +20,11 @@ public class Mario : MonoBehaviour
 
     }
 
+    public class MultiJumpException : System.Exception
+    {
+
+    }
+
     //Require: two 3d vector
     //Modify: None
     //Effect: return the distance on xy plane of the two vectors as float
