@@ -4,15 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-public class Finish : Block
+public class Finish : Mario
 {
     Vector3 This_pos;
-    bool LoadScene;
     // Start is called before the first frame update
     public override void Start()
     {
         Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
-        LoadScene = true;
         for (int i = 0; i < Round; i++)
         {
             WriteData.Score[i] = 0;
@@ -36,17 +34,13 @@ public class Finish : Block
         {
             if(IsInside())
             {
-                LoadScene = true;
                 for (TheData.Round_ran = 0; TheData.Round_ran < Round; TheData.Round_ran++)
                 {
                     GenerateData();
                 }
-                if (LoadScene)
-                {
-                    Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
-                    WriteData.Reset();
-                    SceneManager.LoadScene(0);
-                }
+                Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+                WriteData.Reset();
+                SceneManager.LoadScene(0);
             }
         }
     }
@@ -62,53 +56,15 @@ public class Finish : Block
 
     private void GenerateData()
     {
-        Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+        Data WriteData = (Data) GameObject.Find("DATA").GetComponent("Data");
         Block CURR = GameObject.Find("Start_Block").transform.GetComponent<Rb_start>();
         bool Jixu = true;
-        WriteData.Jumped = false;
-        while (Jixu&&LoadScene)
+        while (Jixu)
         {
             Block Prev = CURR;
-            try
-            {
-                CURR = CURR.Read_block();
-            }
-            catch(UnassignedReferenceException)
-            {
-                Debug.Log("There is a command with no target! Exception type: 1");
-                Jixu = false;
-                LoadScene = false;
-            }
-            catch (System.NullReferenceException)
-            {
-                Debug.Log("There is a command with no target! Exception type: 2");
-                Jixu = false;
-                LoadScene = false;
-            }
-            catch (IfWithoutEndException)
-            {
-                Debug.Log("There is a IF without an End! Exception type: 3");
-                Jixu = false;
-                LoadScene = false;
-            }
-            catch (MultiJumpException)
-            {
-                Debug.Log("Too many JUMP executed. Exception type: 5");
-                Jixu = false;
-                LoadScene = false;
-            }
+            CURR = CURR.Read_block();
             //if the current block is the same as the previous block, we exit the loop
-            //If jumped is false, it means the player's program didn't execute any jumps
-            if (Prev.gameObject.transform.name == CURR.gameObject.transform.name)
-            {
-                Jixu = false;
-                if (!WriteData.Jumped)
-                {
-                    LoadScene = false;
-                    Debug.Log("No JUMP executed! Exception type: 4");
-                }
-                WriteData.Jumped = false;
-            }
+            if (Prev.gameObject.transform.name == CURR.gameObject.transform.name) Jixu = false;
         }
     }
 }
