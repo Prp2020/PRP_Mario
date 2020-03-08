@@ -10,6 +10,8 @@ public class Rb_if : Block
 {
     private GameObject LeftB, RightB,Way;
     private int Lefti, Righti;
+    private string Lefts, Rights;
+    private bool leftState, rightState;//LeftB is num, then leftState is true; LeftB is direction, then leftState is false;
     bool TorF;
     public override Block Read_block()
     {
@@ -22,8 +24,19 @@ public class Rb_if : Block
         //Right block is the right block of the Way block
         //Right block is either var, num1 or num2
         RightB = Way.transform.GetChild(0).GetComponent<Right_suck>().Target;
-        Lefti = Compute_lr_value(LeftB);
-        Righti = Compute_lr_value(RightB);
+        if(LeftB.name == "B")
+        {
+            leftState = true;
+            Lefts = LeftB.GetComponent<DirData>.state;
+        }
+        else Lefti = Compute_lr_value(LeftB);
+
+        if (RightB.name == "B")
+        {
+            rightState = true;
+            Rights = RightB.GetComponent<DirData>.state;
+        }
+        else Righti = Compute_lr_value(RightB);
         TorF = Compute_TorF();
         //For now, CURR is the next block
         Block CURR = Return_Next();
@@ -72,7 +85,15 @@ public class Rb_if : Block
         switch (Way.name.Substring(0, 2))
         {
             case "Eq":
-                if (Lefti == Righti) Result = true;
+                Result = false;
+                if(!leftState&&!rightState)
+                {
+                    if (Lefts == Rights) Result = true;
+                }
+                if (leftState && rightState)
+                {
+                    if (Lefti == Righti) Result = true;
+                }
                 break;
             case "GT":
                 if (Lefti > Righti) Result = true;
