@@ -15,7 +15,7 @@ public class Finish : Block
         LoadScene = true;
         for (int i = 0; i < Round; i++)
         {
-            WriteData.Score[i] = 0;
+             WriteData.Score[i] = 0; 
         }
         for (int i = 0; i < Round; i++)
         {
@@ -45,7 +45,7 @@ public class Finish : Block
                 {
                     Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
                     WriteData.Reset();
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene("SampleScene");
                 }
             }
         }
