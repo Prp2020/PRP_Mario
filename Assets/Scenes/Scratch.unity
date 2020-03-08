@@ -1835,7 +1835,7 @@ GameObject:
   - component: {fileID: 390242647}
   - component: {fileID: 390242646}
   - component: {fileID: 390242645}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: TMP SubMesh [Roboto-Bold SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2767,7 +2767,7 @@ GameObject:
   - component: {fileID: 573419613}
   - component: {fileID: 573419615}
   - component: {fileID: 573419614}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4259,7 +4259,7 @@ GameObject:
   - component: {fileID: 811966429}
   - component: {fileID: 811966431}
   - component: {fileID: 811966430}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5273,7 +5273,7 @@ GameObject:
   - component: {fileID: 1074936476}
   - component: {fileID: 1074936478}
   - component: {fileID: 1074936477}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5460,7 +5460,7 @@ GameObject:
   - component: {fileID: 1110420006}
   - component: {fileID: 1110420005}
   - component: {fileID: 1110420004}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: TMP SubMesh [Roboto-Bold SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5938,7 +5938,7 @@ GameObject:
   - component: {fileID: 1183059542}
   - component: {fileID: 1183059543}
   - component: {fileID: 1183059544}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Up_Block
   m_TagString: direction
   m_Icon: {fileID: 0}
@@ -6777,7 +6777,7 @@ GameObject:
   - component: {fileID: 1484735492}
   - component: {fileID: 1484735491}
   - component: {fileID: 1484735496}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Left_Block
   m_TagString: direction
   m_Icon: {fileID: 0}
@@ -7479,7 +7479,7 @@ GameObject:
   - component: {fileID: 1648682930}
   - component: {fileID: 1648682932}
   - component: {fileID: 1648682931}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7669,7 +7669,7 @@ GameObject:
   - component: {fileID: 1703495119}
   - component: {fileID: 1703495118}
   - component: {fileID: 1703495123}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Right_Block
   m_TagString: direction
   m_Icon: {fileID: 0}
@@ -8158,7 +8158,7 @@ GameObject:
   - component: {fileID: 1778859040}
   - component: {fileID: 1778859039}
   - component: {fileID: 1778859044}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Down_Block
   m_TagString: direction
   m_Icon: {fileID: 0}
@@ -8310,7 +8310,7 @@ GameObject:
   - component: {fileID: 1783701722}
   - component: {fileID: 1783701721}
   m_Layer: 10
-  m_Name: DirB_Block
+  m_Name: VarB_Block
   m_TagString: num
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8862,7 +8862,7 @@ GameObject:
   - component: {fileID: 1844013747}
   - component: {fileID: 1844013746}
   - component: {fileID: 1844013745}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: TMP SubMesh [Roboto-Bold SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9657,7 +9657,7 @@ GameObject:
   - component: {fileID: 1905510567}
   - component: {fileID: 1905510566}
   - component: {fileID: 1905510565}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: TMP SubMesh [Roboto-Bold SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}

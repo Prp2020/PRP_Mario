@@ -24,19 +24,27 @@ public class Rb_if : Block
         //Right block is the right block of the Way block
         //Right block is either var, num1 or num2
         RightB = Way.transform.GetChild(0).GetComponent<Right_suck>().Target;
-        if(LeftB.name == "B")
+        if (LeftB.transform.name == "VarB_Block")
+        {
+            leftState = false;
+            Lefts = LeftB.GetComponent<DirData>().state;
+        }
+        else
         {
             leftState = true;
-            Lefts = LeftB.GetComponent<DirData>.state;
+            Lefti = Compute_lr_value(LeftB); 
         }
-        else Lefti = Compute_lr_value(LeftB);
 
-        if (RightB.name == "B")
+        if (RightB.transform.name == "VarB_Block")
+        {
+            rightState = false;
+            Rights = RightB.GetComponent<DirData>().state;
+        }
+        else
         {
             rightState = true;
-            Rights = RightB.GetComponent<DirData>.state;
+            Righti = Compute_lr_value(RightB);
         }
-        else Righti = Compute_lr_value(RightB);
         TorF = Compute_TorF();
         //For now, CURR is the next block
         Block CURR = Return_Next();
@@ -85,8 +93,7 @@ public class Rb_if : Block
         switch (Way.name.Substring(0, 2))
         {
             case "Eq":
-                Result = false;
-                if(!leftState&&!rightState)
+                if(!leftState && !rightState)
                 {
                     if (Lefts == Rights) Result = true;
                 }

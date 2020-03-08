@@ -24,7 +24,11 @@ public class Right_suck : Mario
         }
         //return if target is direction
         if (Target.CompareTag("direction"))
-            return;
+        {
+            if (this.transform.name == "right" && this.transform.parent.name.Substring(0, 6) == "Assign") { }
+            else { return; }
+        }
+            
 
         if (this.transform.name == "Left" && Target.name.Substring(0, 3) != "Var") return;
 

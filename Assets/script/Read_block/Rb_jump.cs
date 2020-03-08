@@ -9,7 +9,7 @@ public class Rb_jump : Block
     {
         GameObject Dest = this.transform.GetChild(1).GetComponent<Dest_Suck>().Target;
         string name = Dest.transform.name;
-        if (name == "B") name = Dest.SetComponent<DirData>().state;
+        if (name == "B") name = Dest.GetComponent<DirData>().state;
         Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
         switch (name[0])
         {
