@@ -19,13 +19,14 @@ public class Dest_Suck : Mario
     {
         if (Target == null)
             return;
-        //terminate the program if the target is not direction
+        //如果目标不是方向
+        //那么不吸附
         if (!Target.CompareTag("direction"))
         {
             return;
         }
         //鼠标点到这个物体时还原parent
-        if(GLOBAL.Isclick && Target==GLOBAL.Target&&Is_suck)
+        if (GLOBAL.Isclick && Target==GLOBAL.Target&&Is_suck)
         {
             Target.transform.SetParent(GLOBAL.gameObject.transform);
             Is_suck = false;

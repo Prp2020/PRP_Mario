@@ -9,7 +9,7 @@ using UnityEngine;
 public class Rb_if : Block
 {
     private GameObject LeftB, RightB,Way;
-    private int Lefti, Righti;   
+    private int Lefti, Righti;
     bool TorF;
     public override Block Read_block()
     {

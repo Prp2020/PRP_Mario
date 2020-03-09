@@ -22,17 +22,29 @@ public class Right_suck : Mario
         {
             return;
         }
-        //return if target is direction
-        if (Target.CompareTag("direction"))
+        
+        if (Target.CompareTag("direction"))//如果目标是方向，包括具体的方向和方向变量
         {
-            if (this.transform.name == "right" && this.transform.parent.name.Substring(0, 6) == "Assign") { }
+            //如果这是赋值下的右
+            //那么继续
+            if (this.transform.name == "right" && this.transform.parent.name.Substring(0, 6) == "Assign") {
+                //keep going
+            }
+            //如果这是赋值下的左，且目标是方向变量
+            //那么继续，否则不吸附
+            else if (this.transform.name == "Left" && this.transform.parent.name.Substring(0, 6) == "Assign" && Target.transform.name.Substring(0, 4) == "VarB")
+            {
+                //keep going
+            }
             else return;
         }
-            
 
         if (this.transform.name == "Left" && Target.name.Substring(0, 3) != "Var") return;
 
-        if (this.transform.parent.tag == "num")
+        //如果这是num下的
+        //如果目标不是signs
+        //那么不吸附
+        if (this.transform.parent.CompareTag("num"))
         {
             if (!Target.CompareTag("signs"))
             {
@@ -40,7 +52,10 @@ public class Right_suck : Mario
             }
         }
 
-        if (this.transform.parent.tag == "Block")
+        //如果这是tag为Block的物体之下的，
+        //如果目标也是Block或者目标是signs
+        //那么不吸附
+        if (this.transform.parent.CompareTag("Block"))
         {
             if (Target.CompareTag("Block") || Target.CompareTag("signs"))
             {
@@ -48,7 +63,7 @@ public class Right_suck : Mario
             }
         }
 
-        if (this.transform.parent.tag == "signs")
+        if (this.transform.parent.CompareTag("signs"))
         {
             if (!Target.CompareTag("num"))
             {

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Mario : MonoBehaviour
 {
     protected int Round = 4;
+    //Some time constants for simulatino
+    protected readonly float EndTime_ = 0.5f;
+    protected readonly float ResetTime_ = 1.5f;
     public virtual void Start()
     {
         
