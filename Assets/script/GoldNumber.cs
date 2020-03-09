@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoldNumber : MonoBehaviour
+public class GoldNumber : Mario
 {
     public GameObject[] cubes;
     public GameObject score;
@@ -13,10 +13,17 @@ public class GoldNumber : MonoBehaviour
     private int Round_run = 0;
     private float Time_ = 0;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         textMeshes = new TextMesh[4];
-        WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+        try
+        {
+            WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+        }
+        catch (System.NullReferenceException)
+        {
+            return;
+        }
         num = new int[4];
         for (int i = 0; i < 4; i++)
         {
@@ -26,12 +33,19 @@ public class GoldNumber : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        Time_ += Time.deltaTime;        
-        WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+        Time_ += Time.deltaTime;
+        try
+        {
+            WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+        }
+        catch (System.NullReferenceException)
+        {
+            return;
+        }
         
-        if (Time_ > 1.15f && Round_run < 3)
+        if (Time_ > ResetTime_ && Round_run < 3)
         {           
             Round_run++;
             Time_ = 0;            
