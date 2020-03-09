@@ -132,10 +132,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 63571013}
+  - component: {fileID: 63571014}
   - component: {fileID: 63571017}
   - component: {fileID: 63571016}
   - component: {fileID: 63571015}
-  - component: {fileID: 63571014}
   m_Layer: 0
   m_Name: character
   m_TagString: Untagged
@@ -166,10 +166,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 63571012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d372df2fa45c444af64c461c238052, type: 3}
+  m_Script: {fileID: 11500000, guid: d43b6b3837182dd44abd359ad97b1a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
 --- !u!135 &63571015
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1175,7 +1174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065524292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 1.46, y: 0.18, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1190,7 +1189,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300898696}
-  - component: {fileID: 1300898695}
   m_Layer: 0
   m_Name: pool
   m_TagString: Untagged
@@ -1198,24 +1196,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1300898695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300898694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce9fb8fc93bab354e9327ba051fc77d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubes:
-  - {fileID: 1364986354}
-  - {fileID: 216547391}
-  - {fileID: 2067730955}
-  - {fileID: 2007242165}
-  score: {fileID: 1883102027}
 --- !u!4 &1300898696
 Transform:
   m_ObjectHideFlags: 0
