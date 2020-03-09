@@ -5,8 +5,6 @@ using UnityEngine;
 public class MoveCharacter : Mario
 {
     private float Time_ = 1f;   //"1f" is just to make sure Time_ is initially big enough
-    private readonly float EndTime_ = 0.25f;
-    private readonly float ResetTime_ = 0.5f;
     private readonly float Speed = 0.05f;
     private int dir;//dir = 0 -> move nowhere. 1-left;2-up;3-right;4-down.
     private Vector3 Origin;
