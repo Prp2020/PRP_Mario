@@ -16,10 +16,14 @@ public class Rb_assign : Block
         {
             if(t.name.Substring(0,4) == LeftB.name.Substring(0,4))
             {
-                if (t.name == "VarB_Block")
+                if (t.name.Substring(0,4) == "VarB")
+                {
                     t.GetComponent<DirData>().state = RightB.transform.name;
+                }
                 else
+                {
                     t.GetComponent<VarData>().Var = Compute_lr_value(RightB);
+                }
             }
         }
         return Return_Next();
