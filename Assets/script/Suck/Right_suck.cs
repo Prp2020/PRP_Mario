@@ -26,7 +26,7 @@ public class Right_suck : Mario
         if (Target.CompareTag("direction"))
         {
             if (this.transform.name == "right" && this.transform.parent.name.Substring(0, 6) == "Assign") { }
-            else { return; }
+            else return;
         }
             
 

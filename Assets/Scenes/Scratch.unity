@@ -1510,7 +1510,7 @@ GameObject:
   - component: {fileID: 318898223}
   - component: {fileID: 318898225}
   - component: {fileID: 318898224}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2697,6 +2697,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 4411188030449314540, guid: dae6741a4b347e249b5bc38292a3f642,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4411188030449314541, guid: dae6741a4b347e249b5bc38292a3f642,
         type: 3}
@@ -7949,7 +7954,7 @@ GameObject:
   - component: {fileID: 1715993729}
   - component: {fileID: 1715993728}
   - component: {fileID: 1715993727}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: TMP SubMesh [Roboto-Bold SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}

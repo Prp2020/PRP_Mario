@@ -9,9 +9,7 @@ using UnityEngine;
 public class Rb_if : Block
 {
     private GameObject LeftB, RightB,Way;
-    private int Lefti, Righti;
-    private string Lefts, Rights;
-    private bool leftState, rightState;//LeftB is num, then leftState is true; LeftB is direction, then leftState is false;
+    private int Lefti, Righti;   
     bool TorF;
     public override Block Read_block()
     {
@@ -24,27 +22,8 @@ public class Rb_if : Block
         //Right block is the right block of the Way block
         //Right block is either var, num1 or num2
         RightB = Way.transform.GetChild(0).GetComponent<Right_suck>().Target;
-        if (LeftB.transform.name == "VarB_Block")
-        {
-            leftState = false;
-            Lefts = LeftB.GetComponent<DirData>().state;
-        }
-        else
-        {
-            leftState = true;
-            Lefti = Compute_lr_value(LeftB); 
-        }
-
-        if (RightB.transform.name == "VarB_Block")
-        {
-            rightState = false;
-            Rights = RightB.GetComponent<DirData>().state;
-        }
-        else
-        {
-            rightState = true;
-            Righti = Compute_lr_value(RightB);
-        }
+        Lefti = Compute_lr_value(LeftB);
+        Righti = Compute_lr_value(RightB);
         TorF = Compute_TorF();
         //For now, CURR is the next block
         Block CURR = Return_Next();
@@ -92,15 +71,8 @@ public class Rb_if : Block
         bool Result = false;
         switch (Way.name.Substring(0, 2))
         {
-            case "Eq":
-                if(!leftState && !rightState)
-                {
-                    if (Lefts == Rights) Result = true;
-                }
-                if (leftState && rightState)
-                {
-                    if (Lefti == Righti) Result = true;
-                }
+            case "Eq":                
+                    if (Lefti == Righti) Result = true;                
                 break;
             case "GT":
                 if (Lefti > Righti) Result = true;

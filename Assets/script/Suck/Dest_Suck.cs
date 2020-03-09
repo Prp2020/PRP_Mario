@@ -21,7 +21,9 @@ public class Dest_Suck : Mario
             return;
         //terminate the program if the target is not direction
         if (!Target.CompareTag("direction"))
+        {
             return;
+        }
         //鼠标点到这个物体时还原parent
         if(GLOBAL.Isclick && Target==GLOBAL.Target&&Is_suck)
         {
