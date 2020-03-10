@@ -1189,6 +1189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300898696}
+  - component: {fileID: 1300898697}
+  - component: {fileID: 1300898695}
   m_Layer: 0
   m_Name: pool
   m_TagString: Untagged
@@ -1196,6 +1198,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1300898695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300898694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4979b4d0995d3448f088ea7d5deab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gold: 
+  Score: 0
 --- !u!4 &1300898696
 Transform:
   m_ObjectHideFlags: 0
@@ -1222,6 +1238,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1300898697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300898694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d126f47288d0764a9a72571817779d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubes:
+  - {fileID: 1364986354}
+  - {fileID: 216547391}
+  - {fileID: 2067730955}
+  - {fileID: 2007242165}
+  score: {fileID: 1883102027}
 --- !u!1 &1364986354
 GameObject:
   m_ObjectHideFlags: 0
