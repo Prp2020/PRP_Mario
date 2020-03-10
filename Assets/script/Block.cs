@@ -69,6 +69,7 @@ public class Block : Mario
                 GameObject Dest = Block_in.transform.GetChild(1).GetComponent<Dest_Suck>().Target;
                 Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
                 string Name = Dest.transform.name;
+                if (Name.Substring(0, 4) == "VarB") Name = Dest.GetComponent<DirData>().state;
                 switch (Name[0])
                 {
                     case 'U':

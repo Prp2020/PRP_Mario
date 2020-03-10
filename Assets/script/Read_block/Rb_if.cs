@@ -71,8 +71,8 @@ public class Rb_if : Block
         bool Result = false;
         switch (Way.name.Substring(0, 2))
         {
-            case "Eq":
-                if (Lefti == Righti) Result = true;
+            case "Eq":                
+                    if (Lefti == Righti) Result = true;                
                 break;
             case "GT":
                 if (Lefti > Righti) Result = true;

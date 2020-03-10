@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoldNumber : Mario
+public class PlayMode_GoldNumber : Mario
 {
     public GameObject[] cubes;
     public GameObject score;
     private TextMesh[] textMeshes;
-    Data WriteData;
+    PlayMode_Data WriteData;
     private int[] num;
     private int scorenum;
-    private int Round_run = 0;
     private float Time_ = 0;
     // Start is called before the first frame update
     public override void Start()
@@ -18,7 +17,7 @@ public class GoldNumber : Mario
         textMeshes = new TextMesh[4];
         try
         {
-            WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
+            WriteData = (PlayMode_Data)GameObject.Find("pool").GetComponent("PlayMode_Data");
         }
         catch (System.NullReferenceException)
         {
@@ -35,26 +34,16 @@ public class GoldNumber : Mario
     public override void Update()
     {
         Time_ += Time.deltaTime;
-        try
+        if (Time_ > ResetTime_)
         {
-            WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
-        }
-        catch (System.NullReferenceException)
-        {
-            return;
-        }
-        
-        if (Time_ > ResetTime_ && Round_run < 3)
-        {           
-            Round_run++;
-            Time_ = 0;            
+            Time_ = 0;
         }
         for (int i = 0; i < 4; i++)
         {
-            num[i] = WriteData.Gold[Round_run][i];
+            num[i] = WriteData.Gold[i];
             textMeshes[i].text = num[i].ToString();
         }
-        scorenum = WriteData.Score[Round_run];
+        scorenum = WriteData.Score;
         score.GetComponent<TextMesh>().text = "Score: " + scorenum.ToString();
     }
 }
