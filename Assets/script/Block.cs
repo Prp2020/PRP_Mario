@@ -6,7 +6,7 @@ public class Block : Mario
 {
     protected Vector3 Pos;
     protected Transform Parent;
-    protected bool Used;
+    public bool Used;
     public void Clone()
     {
         if (!Used&&Distance(this.transform.position, Pos) > 1.0f) {
