@@ -20,7 +20,7 @@ public class Nowstart : Mario
         {
             if (IsInside())
             { 
-                SceneManager.LoadScene("Scratch");
+                SceneManager.LoadScene("Game1_Main");
             }
         }
 

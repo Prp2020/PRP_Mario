@@ -45,7 +45,7 @@ public class Finish : Block
                 {
                     Data WriteData = (Data)GameObject.Find("DATA").GetComponent("Data");
                     WriteData.Reset();
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene("Game1_Play");
                 }
             }
         }
