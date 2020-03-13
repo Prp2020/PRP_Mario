@@ -46,17 +46,19 @@ public class left_zone : MonoBehaviour
             this.transform.position += new Vector3(0, 0.5f, 0) * mouseScrollspeed;
         }
 
-        //generate object from data in remainData in leftzone
-        if (Input.GetKeyDown(KeyCode.B))
+        
+        
+    }
+    //generate object from data in remainData in leftzone
+    public void reBuild()
+    {
+        if (num_inleftzone != 0)
         {
-            if (num_inleftzone != 0)
+            for (int i = 0; i < num_inleftzone; i++)
             {
-                for(int i = 0; i < num_inleftzone; i++)
-                {
-                    GameObject newBlock = Instantiate(GameObject.Find(go_inleftzone[i]), gopos_inleftzone[i]+referenceblock.transform.position,this.transform.rotation);
-                    newBlock.GetComponent<Block_Clone>().isbuilt = true;
-                    newBlock.GetComponent<Block_Clone>().Used = true;
-                }
+                GameObject newBlock = Instantiate(GameObject.Find(go_inleftzone[i]), gopos_inleftzone[i] + referenceblock.transform.position, this.transform.rotation);
+                newBlock.GetComponent<Block_Clone>().isbuilt = true;
+                newBlock.GetComponent<Block_Clone>().Used = true;
             }
         }
     }

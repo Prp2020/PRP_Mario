@@ -6,34 +6,71 @@ public class ObjectInZone : MonoBehaviour
 {
     private GameObject leftzone;
     private GameObject rdblock;
+    private GameObject saveButton;
+    private bool isCounted = false;
     //the position is recorded referring the start block
     private GameObject referenceblock;
     public bool isinzone=false;
-    
+    private bool isthissaved = false;
     // Start is called before the first frame update
     void Start()
     {
         leftzone = GameObject.Find("leftzone");
         rdblock = GameObject.Find("remain_Data");
         referenceblock = GameObject.Find("Start_Block");
+        saveButton = GameObject.Find("ButtonSave");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if the object is in left zone and S is being pressed, save the data
-        if (Input.GetKeyDown(KeyCode.S))
+        isInZone();
+        if (isinzone)
         {
-            isInZone();
-            if (isinzone)
+            if (!isCounted)
             {
-                rdblock.GetComponent<remainData>().go_inleftzone[rdblock.GetComponent<remainData>().num_inleftzone] = nameCorrection(this.transform.name);
-                rdblock.GetComponent<remainData>().gopos_inleftzone[rdblock.GetComponent<remainData>().num_inleftzone] = this.transform.position-referenceblock.transform.position;
-                rdblock.GetComponent<remainData>().num_inleftzone++;
+                isCounted = true;
+                rdblock.GetComponent<remainData>().actualnum++;
+            }
+        }
+        else
+        {
+            if (isCounted)
+            {
+                isCounted = false;
+                rdblock.GetComponent<remainData>().actualnum--;
+            }
+        }
+        //if the object is in left zone, save the data
+        if (!isthissaved)
+        {
+            if (saveButton.GetComponent<Save>().saveAll == 1)
+            {
+                saveThis();
+            }
+        }
+        else
+        {
+            if (saveButton.GetComponent<Save>().saveAll == 0)
+            {
+                isthissaved = false;
+            }
+            if (saveButton.GetComponent<Save>().saveAll == 2)
+            {
+                isthissaved = true;
             }
         }
        
     }
+
+    private void OnDestroy()
+    {
+        if (isinzone)
+        {
+            rdblock.GetComponent<remainData>().actualnum--;
+        }
+    }
+
     //to judge whether the object is in the left zone
     public void isInZone()
     {
@@ -41,10 +78,25 @@ public class ObjectInZone : MonoBehaviour
         {
             isinzone = true;
         }
-        else { isinzone = false; }
+        else 
+        { 
+            isinzone = false; 
+        }
     }
 
-    //to fix bugs names with one or more (clone) may cause
+    //to save the information of this object
+    private void saveThis()
+    {
+        if (isinzone)
+        {
+            rdblock.GetComponent<remainData>().go_inleftzone[rdblock.GetComponent<remainData>().num_inleftzone] = nameCorrection(this.transform.name);
+            rdblock.GetComponent<remainData>().gopos_inleftzone[rdblock.GetComponent<remainData>().num_inleftzone] = this.transform.position - referenceblock.transform.position;
+            rdblock.GetComponent<remainData>().num_inleftzone++;
+        }
+        isthissaved = true;
+    }
+
+    //to fix bugs which is caused by names with one or more (clone)
     private string nameCorrection(string name1)
     {
         string name2=name1;
