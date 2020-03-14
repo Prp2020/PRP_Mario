@@ -10,7 +10,11 @@ public class ObjectInZone : MonoBehaviour
     private bool isCounted = false;
     //the position is recorded referring the start block
     private GameObject referenceblock;
+<<<<<<< Updated upstream
     public bool isinzone=false;
+=======
+    public bool isinzone = false;
+>>>>>>> Stashed changes
     private bool isthissaved = false;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,36 @@ public class ObjectInZone : MonoBehaviour
             {
                 isCounted = true;
                 rdblock.GetComponent<remainData>().actualnum++;
+<<<<<<< Updated upstream
+            }
+        }
+        else
+        {
+            if (isCounted)
+            {
+                isCounted = false;
+                rdblock.GetComponent<remainData>().actualnum--;
+            }
+        }
+        //if the object is in left zone, save the data
+        if (!isthissaved)
+        {
+            if (saveButton.GetComponent<Save>().saveAll == 1)
+            {
+                saveThis();
+            }
+        }
+        else
+        {
+            if (saveButton.GetComponent<Save>().saveAll == 0)
+            {
+                isthissaved = false;
+            }
+            if (saveButton.GetComponent<Save>().saveAll == 2)
+            {
+                isthissaved = true;
+=======
+>>>>>>> Stashed changes
             }
         }
         else
@@ -60,7 +94,7 @@ public class ObjectInZone : MonoBehaviour
                 isthissaved = true;
             }
         }
-       
+
     }
 
     private void OnDestroy()
@@ -78,9 +112,15 @@ public class ObjectInZone : MonoBehaviour
         {
             isinzone = true;
         }
+<<<<<<< Updated upstream
         else 
         { 
             isinzone = false; 
+=======
+        else
+        {
+            isinzone = false;
+>>>>>>> Stashed changes
         }
     }
 
@@ -99,7 +139,7 @@ public class ObjectInZone : MonoBehaviour
     //to fix bugs which is caused by names with one or more (clone)
     private string nameCorrection(string name1)
     {
-        string name2=name1;
+        string name2 = name1;
         if (name1.Contains("Jump")) { name2 = "Jump_Block"; }
         if (name1.Contains("Assignment_Block")) { name2 = "Assignment_Block"; }
         if (name1.Contains("GetDir_Block")) { name2 = "GetDir_Block"; }

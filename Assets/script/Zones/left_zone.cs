@@ -46,8 +46,13 @@ public class left_zone : MonoBehaviour
             this.transform.position += new Vector3(0, 0.5f, 0) * mouseScrollspeed;
         }
 
+<<<<<<< Updated upstream
         
         
+=======
+
+
+>>>>>>> Stashed changes
     }
     //generate object from data in remainData in leftzone
     public void reBuild()
